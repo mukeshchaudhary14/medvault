@@ -11,7 +11,7 @@ pipeline {
         IMAGE_TAG          = "${env.BUILD_NUMBER}"
         
         // Jenkins Credentials ID configured in Jenkins (Manage Jenkins -> Credentials)
-        DOCKER_CREDENTIALS = 'dockerhub-credentials'
+        DOCKER_CREDENTIALS = 'docker-hub-credentials'
     }
 
     options {
