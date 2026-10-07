@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="100%" height="100%" style="background: #090d16; border-radius: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="dockerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#082f49" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Flowing animation style -->
+    <style>
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -32; }
+      }
+      @keyframes pulseBadge {
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.06); opacity: 1; }
+      }
+      @keyframes floatCylinder {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-4px); }
+      }
+      .anim-flow {
+        stroke-dasharray: 8, 8;
+        animation: dashFlow 1.2s linear infinite;
+      }
+      .pulse-tag {
+        animation: pulseBadge 2s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .floating-reg {
+        animation: floatCylinder 3s ease-in-out infinite;
+        transform-origin: center;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="960" height="320" rx="16" fill="url(#bgGrid)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Top Title Banner -->
+  <g transform="translate(30, 28)">
+    <circle cx="6" cy="6" r="4" fill="#10b981" />
+    <text x="18" y="10" fill="#f8fafc" font-size="14" font-weight="bold" letter-spacing="0.5">MEDVAULT — LIVE CLOUD-NATIVE DEVOPS &amp; GITOPS PIPELINE</text>
+    <text x="750" y="10" fill="#38bdf8" font-size="11" font-weight="600" font-family="monospace">AUTO-SYNC: ACTIVE</text>
+  </g>
+  <line x1="30" y1="46" x2="930" y2="46" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Animated Connection Paths -->
+  <!-- 1. Dev -> GitHub -->
+  <path d="M 125 150 L 210 150" stroke="#38bdf8" stroke-width="3" fill="none" class="anim-flow" />
+  
+  <!-- 2. GitHub -> Jenkins -->
+  <path d="M 295 150 L 370 150" stroke="#c084fc" stroke-width="3" fill="none" class="anim-flow" />
+  
+  <!-- 3. Jenkins -> Docker Hub -->
+  <path d="M 455 150 L 525 150" stroke="#fb923c" stroke-width="3" fill="none" class="anim-flow" />
+  
+  <!-- 4. Docker Hub -> Kubernetes / ArgoCD -->
+  <path d="M 645 150 L 715 150" stroke="#34d399" stroke-width="3" fill="none" class="anim-flow" />
+
+  <!-- 5. GitHub -> ArgoCD (Lower Curve GitOps Watch) -->
+  <path d="M 252 195 C 252 275, 765 275, 765 195" stroke="#10b981" stroke-width="2.5" fill="none" class="anim-flow" stroke-dasharray="6,6" opacity="0.85" />
+  <text x="475" y="270" fill="#10b981" font-size="10" font-weight="600" text-anchor="middle" font-family="monospace">GitOps Watch (helm/medvault)</text>
+
+  <!-- 6. K8s -> Users -->
+  <path d="M 815 150 L 870 150" stroke="#38bdf8" stroke-width="3" fill="none" class="anim-flow" />
+
+  <!-- NODE 1: Developer -->
+  <g transform="translate(45, 100)">
+    <rect width="80" height="100" rx="12" fill="#0f172a" stroke="#1e3a8a" stroke-width="2"/>
+    <text x="40" y="42" font-size="26" text-anchor="middle">👨‍💻</text>
+    <text x="40" y="66" fill="#e2e8f0" font-size="11" font-weight="bold" text-anchor="middle">Developer</text>
+    <rect x="12" y="74" width="56" height="16" rx="4" fill="#1e293b" />
+    <text x="40" y="86" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">git push</text>
+  </g>
+
+  <!-- NODE 2: GitHub -->
+  <g transform="translate(210, 100)">
+    <rect width="85" height="100" rx="12" fill="#1e1035" stroke="#7e22ce" stroke-width="2"/>
+    <text x="42" y="42" font-size="26" text-anchor="middle">🐙</text>
+    <text x="42" y="66" fill="#e2e8f0" font-size="11" font-weight="bold" text-anchor="middle">GitHub</text>
+    <rect x="8" y="74" width="69" height="16" rx="4" fill="#2e1065" />
+    <text x="42" y="86" fill="#c084fc" font-size="8.5" font-family="monospace" text-anchor="middle">main branch</text>
+  </g>
+
+  <!-- NODE 3: Jenkins CI + Trivy -->
+  <g transform="translate(370, 100)">
+    <rect width="85" height="100" rx="12" fill="#2d1502" stroke="#ea580c" stroke-width="2"/>
+    <text x="42" y="42" font-size="24" text-anchor="middle">⚙️</text>
+    <text x="42" y="64" fill="#e2e8f0" font-size="10.5" font-weight="bold" text-anchor="middle">Jenkins CI</text>
+    <rect x="8" y="72" width="69" height="18" rx="4" fill="#431407" />
+    <text x="42" y="84" fill="#fb923c" font-size="8" font-family="monospace" font-weight="bold" text-anchor="middle">🛡️ Trivy Scan</text>
+  </g>
+
+  <!-- NODE 4: DOCKER HUB CYLINDER (Eraser.io style) -->
+  <g transform="translate(525, 80)" class="floating-reg">
+    <!-- Cylinder Base -->
+    <rect x="5" y="24" width="110" height="96" rx="16" fill="url(#dockerGrad)" stroke="#38bdf8" stroke-width="2.5" />
+    
+    <!-- Cylinder Top Ellipse -->
+    <ellipse cx="60" cy="24" rx="55" ry="16" fill="#0284c7" stroke="#38bdf8" stroke-width="2.5" />
+    
+    <!-- Docker Icon & Label -->
+    <text x="60" y="58" font-size="20" text-anchor="middle">🐳</text>
+    <text x="60" y="76" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Docker Hub</text>
+    <text x="60" y="90" fill="#bae6fd" font-size="9" font-family="monospace" text-anchor="middle">makug/medvault</text>
+    
+    <!-- Glowing Badge (latest) -->
+    <g transform="translate(35, 96)" class="pulse-tag">
+      <rect width="50" height="16" rx="4" fill="#38bdf8" />
+      <text x="25" y="12" fill="#082f49" font-size="9" font-family="monospace" font-weight="bold" text-anchor="middle">:latest</text>
+    </g>
+  </g>
+
+  <!-- NODE 5: ArgoCD & Kubernetes -->
+  <g transform="translate(715, 95)">
+    <rect width="100" height="110" rx="14" fill="#062e24" stroke="#10b981" stroke-width="2.5"/>
+    <text x="50" y="38" font-size="22" text-anchor="middle">🐙☸️</text>
+    <text x="50" y="58" fill="#e2e8f0" font-size="11" font-weight="bold" text-anchor="middle">ArgoCD + K8s</text>
+    <text x="50" y="72" fill="#34d399" font-size="9" font-weight="600" text-anchor="middle">2 Pods (Nginx SPA)</text>
+    <rect x="12" y="80" width="76" height="18" rx="4" fill="#022c22" stroke="#059669" stroke-width="1"/>
+    <text x="50" y="92" fill="#6ee7b7" font-size="8.5" font-family="monospace" text-anchor="middle">NodePort: 30080</text>
+  </g>
+
+  <!-- NODE 6: End Users -->
+  <g transform="translate(870, 100)">
+    <rect width="70" height="100" rx="12" fill="#0c2340" stroke="#0284c7" stroke-width="2"/>
+    <text x="35" y="42" font-size="24" text-anchor="middle">👥</text>
+    <text x="35" y="66" fill="#e2e8f0" font-size="10.5" font-weight="bold" text-anchor="middle">End Users</text>
+    <rect x="6" y="74" width="58" height="16" rx="4" fill="#082f49" />
+    <text x="35" y="86" fill="#38bdf8" font-size="8.5" font-family="monospace" text-anchor="middle">Live SaaS</text>
+  </g>
+
+</svg>

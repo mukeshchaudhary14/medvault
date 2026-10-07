@@ -12,6 +12,12 @@
 
 > **Unified EMR, Multi-Portal Clinical Operations, OPD Queue Management, ABDM/FHIR Compliance, and Production-Grade DevOps & GitOps Automation.**
 
+<div align="center">
+  <br />
+  <img src="docs/architecture-flow.svg" alt="MedVault Animated Cloud-Native DevOps & GitOps Architecture" width="100%" />
+  <br />
+</div>
+
 ---
 
 ## 📑 Table of Contents
