@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: medvault-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    # Aapka GitHub repository jisme Helm chart hai
+    repoURL: https://github.com/mukeshchaudhary14/medvault.git
+    targetRevision: HEAD
+    path: helm/medvault
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true      # Agar Git se koi resource delete hua toh K8s se bhi remove karega
+      selfHeal: true   # Agar kisi ne manually K8s me pod/svc badla toh Git ke anusaar theek karega
+    syncOptions:
+      - CreateNamespace=true

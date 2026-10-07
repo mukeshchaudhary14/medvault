@@ -1,0 +1,38 @@
+# Default values for medvault Helm chart.
+replicaCount: 2
+
+image:
+  repository: makug/medvault
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+  nodePort: 30080
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 75
+
+probes:
+  liveness:
+    path: /
+    initialDelaySeconds: 15
+    periodSeconds: 20
+  readiness:
+    path: /
+    initialDelaySeconds: 5
+    periodSeconds: 10

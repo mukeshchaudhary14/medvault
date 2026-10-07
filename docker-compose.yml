@@ -1,12 +1,8 @@
 services:
   medvault:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: makug/medvault:latest
     container_name: medvault-app
     restart: unless-stopped
     ports:
       - "5173:80"
-    # Agar .env file banayi ho toh un-comment kar sakte hain:
-    # env_file:
-    #   - .env
+    pull_policy: always
