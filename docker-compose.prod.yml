@@ -1,0 +1,8 @@
+services:
+  medvault:
+    image: makug/medvault:latest
+    container_name: medvault-app
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    pull_policy: always
